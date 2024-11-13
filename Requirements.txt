@@ -18,3 +18,11 @@ six==1.15.0
 streamlit==0.62.1
 urllib3==1.25.9
 yfinance==0.1.55 
+streamlit
+pandas
+numpy
+matplotlib
+scipy
+requests
+pandas-datareader
+requests-cache
