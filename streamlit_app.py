@@ -116,8 +116,9 @@ if pricing_method == OPTION_PRICING_MODEL.BLACK_SCHOLES.value:
         if data is not None:
             st.write("Historical Data:")
             st.write(data.tail())
-            Ticker.plot_data(data, ticker, 'Adj Close')
-            st.pyplot()
+            fig, ax = plt.subplots()
+            Ticker.plot_data(data, ticker, 'Adj Close', ax=ax)
+            st.pyplot(fig)
 
             # Formatting selected model parameters
             spot_price = Ticker.get_last_price(data, 'Adj Close')
@@ -164,8 +165,9 @@ if pricing_method == OPTION_PRICING_MODEL.MONTE_CARLO.value:
         if data is not None:
             st.write("Historical Data:")
             st.write(data.tail())
-            Ticker.plot_data(data, ticker, 'Adj Close')
-            st.pyplot()
+            fig, ax = plt.subplots()
+            Ticker.plot_data(data, ticker, 'Adj Close', ax=ax)
+            st.pyplot(fig)
 
             # Formatting simulation parameters
             spot_price = Ticker.get_last_price(data, 'Adj Close')
@@ -216,8 +218,9 @@ if pricing_method == OPTION_PRICING_MODEL.BINOMIAL.value:
         if data is not None:
             st.write("Historical Data:")
             st.write(data.tail())
-            Ticker.plot_data(data, ticker, 'Adj Close')
-            st.pyplot()
+            fig, ax = plt.subplots()
+            Ticker.plot_data(data, ticker, 'Adj Close', ax=ax)
+            st.pyplot(fig)
 
             # Formatting simulation parameters
             spot_price = Ticker.get_last_price(data, 'Adj Close')
