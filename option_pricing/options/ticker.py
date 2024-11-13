@@ -70,7 +70,7 @@ class Ticker:
 
 
     @staticmethod
-    def plot_data(data, ticker, column_name):
+    def plot_data(data, ticker, column_name, ax=None):
         """
         Plots specified column values from dataframe.
         
@@ -78,15 +78,10 @@ class Ticker:
         data: dataframe representing fetched data
         column_name: name of the column in dataframe
         """
-        try:
-            if data is None:
-                return
-            data[column_name].plot()
-            plt.ylabel(f'{column_name}')
-            plt.xlabel('Date')
-            plt.title(f'Historical data for {ticker} - {column_name}')
-            plt.legend(loc='best')
-            plt.show()
-        except Exception as e:
-            print(e)
-            return
+        if ax is None:
+            fig,ax = plt.subplots()
+        data[column_name].plot(ax=ax)
+        ax.set_ylabel(f'{column_name}')
+        ax.set_xlabel('Date')
+        ax.set_title(f'Historical data for {ticker} - {column_name}')
+        ax.legend(loc='best')
