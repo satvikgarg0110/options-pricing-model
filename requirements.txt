@@ -18,3 +18,7 @@ six
 streamlit
 urllib3
 yfinance
+distutils
+abc
+enum
+datetime
