@@ -18,4 +18,4 @@ six
 streamlit
 urllib3
 yfinance
-
+pandas_datareader
