@@ -1,18 +1,22 @@
-"""
-Script testing functionalities of option_pricing package:
-- Testing stock data fetching from Yahoo Finance using pandas-datareader
-- Testing Black-Scholes option pricing model   
-- Testing Binomial option pricing model   
-- Testing Monte Carlo Simulation for option pricing   
-"""
+from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeModel
+import yfinance as yf
+import matplotlib.pyplot as plt
 
-from option_pricing import BlackScholesModel, MonteCarloPricing, BinomialTreeModel, Ticker
+# Fetching stock data from yfinance
+data = yf.download('TSLA', start='2020-01-01', end='2023-12-31')
 
-# Fetching the prices from yahoo finance
-data = Ticker.get_historical_data('TSLA')
-print(Ticker.get_columns(data))
-print(Ticker.get_last_price(data, 'Adj Close'))
-Ticker.plot_data(data, 'TSLA', 'Adj Close')
+# Displaying the columns of the data
+print(data.columns)
+
+# Fetching the last adjusted close price
+print(data['Adj Close'].iloc[-1])
+
+# Plotting the data
+plt.plot(data['Adj Close'])
+plt.title('TSLA Adjusted Close Price')
+plt.xlabel('Date')
+plt.ylabel('Price')
+plt.show()
 
 # Black-Scholes model testing
 BSM = BlackScholesModel(100, 100, 365, 0.1, 0.2)
@@ -30,5 +34,3 @@ MC.simulate_prices()
 print(MC.calculate_option_price('Call Option'))
 print(MC.calculate_option_price('Put Option'))
 MC.plot_simulation_results(20)
-
-
