@@ -14,7 +14,7 @@ class OPTION_PRICING_MODEL(Enum):
     MONTE_CARLO = 'Monte Carlo Simulation'
     BINOMIAL = 'Binomial Model'
 
-@st.cache
+@st.cache_data
 def get_historical_data(ticker):
     """Getting historical data for specified ticker and caching it with Streamlit."""
     data = Ticker.get_historical_data(ticker)
