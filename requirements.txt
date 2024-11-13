@@ -24,5 +24,5 @@ numpy
 matplotlib
 scipy
 requests
-pandas_datareader
+pandas-datareader
 requests-cache
