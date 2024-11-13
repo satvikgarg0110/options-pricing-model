@@ -26,3 +26,4 @@ scipy
 requests
 pandas-datareader
 requests-cache
+setuputils
