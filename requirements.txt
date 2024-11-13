@@ -19,3 +19,6 @@ streamlit
 urllib3
 yfinance
 pandas_datareader
+abc
+enum
+datetime
