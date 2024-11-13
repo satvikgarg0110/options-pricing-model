@@ -18,6 +18,4 @@ six
 streamlit
 urllib3
 yfinance
-abc
-enum
-datetime
+
